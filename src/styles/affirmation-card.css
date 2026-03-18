@@ -1,0 +1,209 @@
+/* ============================================================
+   Affirmation Display Card
+   ============================================================ */
+
+.affirmation-card {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  background: var(--gradient-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-12);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+}
+
+@media (max-width: 640px) {
+  .affirmation-card {
+    padding: var(--space-8) var(--space-6);
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* Decorative corner accent */
+.affirmation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gradient-sunrise);
+  border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+}
+
+/* ── Crossfade slot — both children share the same grid cell ─── */
+.affirmation-slot {
+  display: grid;
+}
+
+.affirmation-slot > * {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+/* ── Hidden / revealed state ─────────────────────────────────── */
+.affirmation-card-wrapper {
+  display: none;
+  opacity: 0;
+  transform: translateY(24px);
+  pointer-events: none;
+}
+
+.affirmation-card-wrapper.is-ready {
+  display: block;
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.affirmation-card-wrapper.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ── Mood label ──────────────────────────────────────────────── */
+.affirmation-card__mood {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mood-color, var(--color-text-muted));
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.affirmation-card__mood-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--mood-color, var(--color-plum-light));
+  flex-shrink: 0;
+}
+
+/* ── Affirmation text ────────────────────────────────────────── */
+.affirmation-card__text {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-style: italic;
+  font-weight: var(--weight-normal);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .affirmation-card__text {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* ── Refresh button — centered below the quote ───────────────── */
+.affirmation-card__refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-bounce);
+}
+
+.affirmation-card__refresh:hover {
+  color: var(--color-plum);
+  background-color: var(--color-lavender-light);
+}
+
+.affirmation-card__refresh:active {
+  transform: scale(0.95);
+}
+
+.affirmation-card__refresh svg {
+  transition: transform var(--transition-base);
+}
+
+.affirmation-card__refresh:hover svg {
+  transform: rotate(-180deg);
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.affirmation-card-wrapper.affirmation-empty-state.is-ready {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  text-align: center;
+}
+
+.affirmation-empty-state__icon {
+  color: var(--color-plum-light);
+  animation: empty-pulse 3s ease-in-out infinite;
+}
+
+.affirmation-empty-state__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-snug);
+}
+
+.affirmation-empty-state__sub {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+@keyframes empty-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.7; }
+  50%       { transform: scale(1.18); opacity: 1;   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .affirmation-empty-state__icon {
+    animation: none;
+  }
+}
+
+/* ── Loading state ───────────────────────────────────────────── */
+.affirmation-card__text.is-loading {
+  position: relative;
+  color: transparent;
+  border-radius: var(--radius-sm);
+}
+
+.affirmation-card__text.is-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-border) 25%,
+    var(--color-lavender-light) 50%,
+    var(--color-border) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

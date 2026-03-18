@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DailyLift — Choose how you're feeling and receive a warm, personalized affirmation." />
+
+    <title>DailyLift — A little light for your day</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
+    />
+
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+
+  <body>
+    <!-- Screen reader live region for dynamic announcements -->
+    <div aria-live="polite" aria-atomic="true" class="live-region" id="sr-announcer"></div>
+
+    <div class="page-wrapper">
+
+      <!-- ── Hero Band: Header + Daily Banner share one background ── -->
+      <div class="hero-band">
+        <div class="site-header__orb site-header__orb--1" aria-hidden="true"></div>
+        <div class="site-header__orb site-header__orb--2" aria-hidden="true"></div>
+        <div class="site-header__orb site-header__orb--3" aria-hidden="true"></div>
+
+        <header class="site-header" role="banner">
+          <div class="site-header__inner">
+            <h1 class="site-logo">Daily<span>Lift</span></h1>
+            <p class="site-tagline">A little light for your day.</p>
+          </div>
+        </header>
+
+        <!-- ── Daily Affirmation Banner ───────────────────────── -->
+        <section
+          class="daily-banner"
+          aria-label="Today's featured affirmation"
+          id="daily"
+        >
+          <div class="daily-banner__inner">
+            <p class="daily-banner__label" aria-hidden="true">
+              <svg class="daily-banner__label-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Today's Affirmation
+            </p>
+            <blockquote class="daily-banner__text" id="daily-affirmation-text">
+              <!-- Populated by daily-affirmation.js -->
+            </blockquote>
+          </div>
+        </section>
+      </div><!-- /.hero-band -->
+
+      <main id="main-content">
+
+        <!-- ── Mood Selector ────────────────────────────────── -->
+        <section class="section--light" id="mood" aria-labelledby="mood-heading">
+          <div class="container">
+            <h2 class="section-heading" id="mood-heading">How are you feeling?</h2>
+            <p class="section-subheading">
+              Choose your mood and receive an affirmation written just for this moment.
+            </p>
+
+            <!-- Mood grid — populated by mood-selector.js -->
+            <div
+              class="mood-selector"
+              role="group"
+              aria-label="Mood options"
+              id="mood-selector"
+            ></div>
+          </div>
+        </section>
+
+        <!-- ── Affirmation Display ───────────────────────────── -->
+        <section class="affirmation-section section--lavender" id="affirmation" aria-labelledby="affirmation-heading">
+          <div class="container container--content">
+            <h2 class="sr-only" id="affirmation-heading">Your affirmation</h2>
+
+            <div class="affirmation-slot">
+
+              <div class="affirmation-card-wrapper" id="affirmation-card-wrapper" aria-hidden="true">
+                <article class="affirmation-card" id="affirmation-card">
+
+                  <p class="affirmation-card__mood" id="affirmation-mood-label" aria-hidden="true">
+                    <span class="affirmation-card__mood-dot"></span>
+                    <span id="affirmation-mood-text"></span>
+                  </p>
+
+                  <p class="affirmation-card__text" id="affirmation-text" aria-live="polite">
+                    <!-- Populated by affirmation-display.js -->
+                  </p>
+
+                  <button
+                    type="button"
+                    class="affirmation-card__refresh"
+                    id="refresh-affirmation"
+                    aria-label="Get a different affirmation"
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M1 4v6h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M23 20v-6h-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Try another
+                  </button>
+                </article>
+              </div>
+
+              <!-- Empty state — shown before mood is selected -->
+              <div class="affirmation-empty-state affirmation-card-wrapper is-ready is-visible" id="affirmation-empty-state" aria-hidden="false">
+                <div class="affirmation-empty-state__icon" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.6"/>
+                    <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <p class="affirmation-empty-state__heading">Choose how you're feeling</p>
+                <p class="affirmation-empty-state__sub">Your personal affirmation is waiting above.</p>
+              </div>
+
+            </div><!-- /.affirmation-slot -->
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ── Site Footer ──────────────────────────────────────── -->
+      <footer class="site-footer" role="contentinfo">
+        <div class="container">
+          <p>Built with care &amp; a little sunshine.</p>
+        </div>
+      </footer>
+
+    </div><!-- /.page-wrapper -->
+
+    <!-- JS entry point -->
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

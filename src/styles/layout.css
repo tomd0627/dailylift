@@ -1,0 +1,219 @@
+/* ============================================================
+   Layout — page skeleton, header, footer, sections
+   ============================================================ */
+
+/* ── Page wrapper ────────────────────────────────────────────── */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+}
+
+/* ── Container ───────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--section-pad-x);
+}
+
+.container--narrow {
+  max-width: var(--narrow-width);
+}
+
+.container--content {
+  max-width: var(--content-width);
+}
+
+/* ── Section ─────────────────────────────────────────────────── */
+section {
+  padding-block: var(--section-pad-y);
+}
+
+/* ── Hero Band — shared gradient behind header + daily banner ── */
+.hero-band {
+  position: relative;
+  background: linear-gradient(180deg, #320f42 0%, #4a1d5e 20%, #7b3f9e 50%, #e8624a 78%, #f5a96b 100%);
+  background-size: 100% 300%;
+  background-position: 0% 0%;
+  animation: hero-pan 18s ease-in-out infinite alternate;
+}
+
+.hero-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(245, 169, 107, 0.25) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes hero-pan {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 0% 60%; }
+}
+
+/* ── Site Header ─────────────────────────────────────────────── */
+.site-header {
+  position: relative;
+  background: transparent;
+  padding-block: var(--space-24) var(--space-20);
+  text-align: center;
+}
+
+
+.site-header__inner {
+  position: relative;
+  z-index: 1;
+}
+
+
+.site-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-inverse);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.site-logo span {
+  display: inline-block;
+  background: linear-gradient(135deg, #fad4a8, #f5a96b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site-tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.01em;
+}
+
+/* ── Decorative orbs in header ───────────────────────────────── */
+.site-header__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.site-header__orb--1 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-coral);
+  top: -100px;
+  right: 0;
+  transform: translateX(30%);
+  animation: orb-drift-1 20s ease-in-out infinite;
+}
+
+.site-header__orb--2 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-peach);
+  bottom: 0;
+  left: 0;
+  transform: translate(-20%, 30%);
+  animation: orb-drift-2 15s ease-in-out infinite;
+}
+
+.site-header__orb--3 {
+  width: 250px;
+  height: 250px;
+  background: var(--color-lavender);
+  top: 20%;
+  left: 20%;
+  animation: orb-drift-3 24s ease-in-out infinite;
+}
+
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-40px, 30px) scale(1.08); }
+  66%       { transform: translate(20px, -20px) scale(0.95); }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(50px, -35px) scale(1.1); }
+  70%       { transform: translate(-20px, 20px) scale(0.92); }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  30%       { transform: translate(30px, 40px) scale(0.9); }
+  60%       { transform: translate(-35px, -25px) scale(1.12); }
+}
+
+/* ── Respect reduced-motion preference ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-band {
+    animation: none;
+    background-position: 0% 30%;
+  }
+  .site-header__orb {
+    animation: none;
+  }
+}
+
+/* ── Site Footer ─────────────────────────────────────────────── */
+.site-footer {
+  background: var(--color-plum-dark);
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding-block: var(--space-8);
+  font-size: var(--text-sm);
+}
+
+.site-footer a {
+  color: var(--color-peach-light);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ── Section headings ────────────────────────────────────────── */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  color: var(--color-plum);
+  text-align: center;
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+}
+
+.section-subheading {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+  line-height: var(--leading-normal);
+}
+
+/* ── Alternating section backgrounds ─────────────────────────── */
+.section--light {
+  background-color: var(--color-bg);
+}
+
+.section--warm {
+  background-color: var(--color-surface-warm);
+}
+
+.section--lavender {
+  background-color: var(--color-lavender-light);
+}

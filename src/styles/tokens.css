@@ -1,0 +1,127 @@
+/* ============================================================
+   DailyLift — Design Tokens
+   Single source of truth for all visual properties.
+   ============================================================ */
+
+:root {
+  /* ── Brand Colors: Sunrise / Sunset ─────────────────────── */
+  --color-plum:           #4a1d5e;
+  --color-plum-dark:      #320f42;
+  --color-plum-light:     #7b3f9e;
+  --color-coral:          #e8624a;
+  --color-coral-light:    #f08070;
+  --color-peach:          #f5a96b;
+  --color-peach-light:    #fad4a8;
+  --color-lavender:       #c4aee8;
+  --color-lavender-light: #ede8f9;
+
+  /* ── Backgrounds & Surfaces ──────────────────────────────── */
+  --color-bg:             #fdf8f5;
+  --color-surface:        #ffffff;
+  --color-surface-warm:   #fff5ee;
+
+  /* ── Text ────────────────────────────────────────────────── */
+  --color-text:           #1e1025;
+  --color-text-secondary: #5c3d72;
+  --color-text-muted:     #9575aa;
+  --color-text-inverse:   #ffffff;
+
+  /* ── Gradients ───────────────────────────────────────────── */
+  --gradient-hero:    linear-gradient(180deg, #320f42 0%, #4a1d5e 30%, #7b3f9e 60%, #e8624a 85%, #f5a96b 100%);
+  --gradient-sunrise: linear-gradient(135deg, #4a1d5e 0%, #e8624a 55%, #f5a96b 100%);
+  --gradient-card:    linear-gradient(160deg, #fff5ee 0%, #ede8f9 100%);
+  --gradient-banner:  linear-gradient(120deg, #7b3f9e 0%, #e8624a 60%, #f5a96b 100%);
+
+  /* ── Focus ───────────────────────────────────────────────── */
+  --focus-ring: 3px solid #f5a96b;
+  --focus-ring-offset: 2px;
+
+  /* ── Borders ─────────────────────────────────────────────── */
+  --color-border:        #e2d4f0;
+  --color-border-subtle: #f0e8f8;
+
+  /* ── Mood-specific accent colors ─────────────────────────── */
+  --mood-angry:       #c0392b;
+  --mood-sad:         #2980b9;
+  --mood-frustrated:  #d35400;
+  --mood-happy:       #d4a017;
+  --mood-anxious:     #8e44ad;
+  --mood-lonely:      #6c7a89;
+  --mood-overwhelmed: #e74c3c;
+  --mood-tired:       #7f8c8d;
+  --mood-hopeful:     #27ae60;
+  --mood-grateful:    #e67e22;
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  4rem;
+
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  --weight-normal:   400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  /* ── Spacing ─────────────────────────────────────────────── */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ── Border Radius ───────────────────────────────────────── */
+  --radius-sm:   0.375rem;
+  --radius-md:   0.75rem;
+  --radius-lg:   1.25rem;
+  --radius-xl:   2rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow-sm:  0 1px 3px rgba(74, 29, 94, 0.08), 0 1px 2px rgba(74, 29, 94, 0.05);
+  --shadow-md:  0 4px 16px rgba(74, 29, 94, 0.12), 0 2px 6px rgba(74, 29, 94, 0.08);
+  --shadow-lg:  0 10px 40px rgba(74, 29, 94, 0.18), 0 4px 12px rgba(74, 29, 94, 0.1);
+  --shadow-xl:  0 20px 60px rgba(74, 29, 94, 0.24), 0 8px 20px rgba(74, 29, 94, 0.12);
+
+  /* ── Transitions ─────────────────────────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  --max-width:      72rem;
+  --content-width:  56rem;
+  --narrow-width:   40rem;
+  --section-pad-y:  var(--space-20);
+  --section-pad-x:  var(--space-6);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-pad-y: var(--space-12);
+    --section-pad-x: var(--space-4);
+    --text-5xl: 2.25rem;
+    --text-6xl: 2.75rem;
+  }
+}

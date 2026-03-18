@@ -1,0 +1,88 @@
+/* ============================================================
+   Daily Featured Affirmation Banner
+   ============================================================ */
+
+.daily-banner {
+  background: transparent;
+  padding-block: var(--space-16);
+  position: relative;
+}
+
+.daily-banner::before {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: var(--color-coral-light);
+  filter: blur(80px);
+  opacity: 0.25;
+  top: -120px;
+  left: -60px;
+  pointer-events: none;
+  animation: banner-orb-1 18s ease-in-out infinite;
+}
+
+.daily-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(50, 15, 66, 0.12) 100%);
+  pointer-events: none;
+}
+
+@keyframes banner-orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(60px, 40px) scale(1.15); }
+  70%       { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .daily-banner::before {
+    animation: none;
+  }
+}
+
+.daily-banner__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--section-pad-x);
+}
+
+.daily-banner__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: var(--space-6);
+}
+
+.daily-banner__label-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.daily-banner__text {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-style: italic;
+  font-weight: var(--weight-normal);
+  color: var(--color-text-inverse);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .daily-banner__text {
+    font-size: var(--text-3xl);
+  }
+}

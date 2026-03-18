@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4a1d5e"/>
+      <stop offset="100%" stop-color="#e8624a"/>
+    </linearGradient>
+    <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#f5a96b"/>
+      <stop offset="100%" stop-color="#fad4a8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+
+  <!-- Sun rays -->
+  <line x1="16" y1="5"  x2="16" y2="2"  stroke="#f5a96b" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="22.2" y1="7.1" x2="24.3" y2="5"   stroke="#f5a96b" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="9.8" y1="7.1"  x2="7.7" y2="5"    stroke="#f5a96b" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="26" y1="13" x2="29" y2="13" stroke="#f5a96b" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="6"  y1="13" x2="3"  y2="13" stroke="#f5a96b" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Sun circle -->
+  <circle cx="16" cy="15" r="5.5" fill="#f5a96b"/>
+
+  <!-- Horizon arc (stylized hill / sunrise line) -->
+  <path d="M5 21 Q16 14 27 21" stroke="#fad4a8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Ground bar -->
+  <rect x="5" y="22" width="22" height="2.5" rx="1.25" fill="#e8624a" opacity="0.7"/>
+  <rect x="8" y="25.5" width="16" height="2" rx="1" fill="#c4aee8" opacity="0.5"/>
+</svg>

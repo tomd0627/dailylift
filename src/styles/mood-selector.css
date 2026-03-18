@@ -87,6 +87,11 @@
 }
 
 /* ── Mood Button inner elements ──────────────────────────────── */
+.mood-btn__emoji svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
 .mood-btn__emoji {
   font-size: 1.75rem;
   line-height: 1;

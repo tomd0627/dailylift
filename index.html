@@ -10,25 +10,23 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Google Fonts — preconnect + non-blocking load to avoid render-blocking -->
+    <!-- Google Fonts — preconnect + preload hint; stylesheet applied by main.js (CSP-safe) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600&display=swap" />
     </noscript>
 
-    <!-- Phosphor Icons — non-blocking load to avoid render-blocking -->
+    <!-- Phosphor Icons — preload hint; stylesheet applied by main.js (CSP-safe) -->
     <link
       rel="preload"
       as="style"
       href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"
-      onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />

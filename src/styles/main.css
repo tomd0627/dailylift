@@ -3,6 +3,14 @@
    Import order matters: tokens → reset → base → layout → components
    ============================================================ */
 
+/* Self-hosted fonts */
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/nunito/400.css';
+@import '@fontsource/nunito/500.css';
+@import '@fontsource/nunito/600.css';
+
 @import './tokens.css';
 @import './reset.css';
 @import './base.css';

@@ -10,14 +10,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600&display=swap" />
-
-    <!-- Phosphor Icons -->
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
-
     <!-- Styles -->
     <link rel="stylesheet" href="/src/styles/main.css" />
   </head>
@@ -80,43 +72,43 @@
               id="mood-selector"
             >
               <button type="button" class="mood-btn" data-mood="angry" aria-pressed="false" style="--mood-color: var(--mood-angry)" tabindex="0">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-angry"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M92,156a16,16,0,1,1,16-16A16,16,0,0,1,92,156Zm72-32a16,16,0,1,0,16,16A16,16,0,0,0,164,124Zm72,4A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128ZM85.34,102l36,24a12,12,0,0,0,13.32,0l36-24a12,12,0,0,0-13.32-20L128,101.58,98.66,82a12,12,0,0,0-13.32,20ZM154,167.12a51.1,51.1,0,0,0-52,0,12,12,0,1,0,12,20.76,27.13,27.13,0,0,1,28,0,12,12,0,1,0,12-20.76Z"/></svg></span>
                 <span class="mood-btn__label">Angry</span>
               </button>
               <button type="button" class="mood-btn" data-mood="sad" aria-pressed="false" style="--mood-color: var(--mood-sad)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-sad"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212ZM76,108a16,16,0,1,1,16,16A16,16,0,0,1,76,108Zm104,0a16,16,0,1,1-16-16A16,16,0,0,1,180,108Zm-3.26,57a12,12,0,0,1-19.48,14,36,36,0,0,0-58.52,0,12,12,0,0,1-19.48-14,60,60,0,0,1,97.48,0Z"/></svg></span>
                 <span class="mood-btn__label">Sad</span>
               </button>
               <button type="button" class="mood-btn" data-mood="frustrated" aria-pressed="false" style="--mood-color: var(--mood-frustrated)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-meh"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm52-52a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h80A12,12,0,0,1,180,160ZM76,108a16,16,0,1,1,16,16A16,16,0,0,1,76,108Zm104,0a16,16,0,1,1-16-16A16,16,0,0,1,180,108Z"/></svg></span>
                 <span class="mood-btn__label">Frustrated</span>
               </button>
               <button type="button" class="mood-btn" data-mood="anxious" aria-pressed="false" style="--mood-color: var(--mood-anxious)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-nervous"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212ZM76,108a16,16,0,1,1,16,16A16,16,0,0,1,76,108Zm72,0a16,16,0,1,1,16,16A16,16,0,0,1,148,108Zm30.92,64.94a12,12,0,0,1-16.78,2.52,38.18,38.18,0,0,1-7.74-8.26,35.12,35.12,0,0,0-2.4-3,35.12,35.12,0,0,0-2.4,3C146,172,140,180,128,180s-18-8-21.6-12.8a35.12,35.12,0,0,0-2.4-3,35.12,35.12,0,0,0-2.4,3,38.18,38.18,0,0,1-7.74,8.26,12,12,0,0,1-14.27-19.3,22.82,22.82,0,0,0,2.81-3.36C86,148,92,140,104,140s18,8,21.6,12.8a35.12,35.12,0,0,0,2.4,3,35.12,35.12,0,0,0,2.4-3C134,148,140,140,152,140s18,8,21.6,12.8a22.82,22.82,0,0,0,2.81,3.36A12,12,0,0,1,178.92,172.94Z"/></svg></span>
                 <span class="mood-btn__label">Anxious</span>
               </button>
               <button type="button" class="mood-btn" data-mood="happy" aria-pressed="false" style="--mood-color: var(--mood-happy)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M178.39,158c-11,19.06-29.39,30-50.39,30s-39.36-10.93-50.39-30a12,12,0,0,1,20.78-12c3.89,6.73,12.91,18,29.61,18s25.72-11.28,29.61-18a12,12,0,1,1,20.78,12ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128ZM92,124a16,16,0,1,0-16-16A16,16,0,0,0,92,124Zm72-32a16,16,0,1,0,16,16A16,16,0,0,0,164,92Z"/></svg></span>
                 <span class="mood-btn__label">Happy</span>
               </button>
               <button type="button" class="mood-btn" data-mood="lonely" aria-pressed="false" style="--mood-color: var(--mood-lonely)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-heart-break"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M178,36a65.6,65.6,0,0,0-46.67,19.33L128,58.66l-3.33-3.33A66,66,0,0,0,12,102c0,72.34,105.81,130.14,110.31,132.57a12,12,0,0,0,11.38,0C138.19,232.14,244,174.34,244,102A66.08,66.08,0,0,0,178,36Zm-5.49,142.36A328.69,328.69,0,0,1,128,210.16a328.69,328.69,0,0,1-44.51-31.8C61.82,159.77,36,131.42,36,102a42,42,0,0,1,71.7-29.7L111,75.63l-7.52,7.52a12,12,0,0,0,0,17l21.7,21.7-13.7,13.69a12,12,0,1,0,17,17l22.18-22.19a12,12,0,0,0,0-17L129,91.63,148.3,72.3A42,42,0,0,1,220,102C220,131.42,194.18,159.77,172.51,178.36Z"/></svg></span>
                 <span class="mood-btn__label">Lonely</span>
               </button>
               <button type="button" class="mood-btn" data-mood="overwhelmed" aria-pressed="false" style="--mood-color: var(--mood-overwhelmed)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-x-eyes"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm56.49-92.49a12,12,0,0,1-17,17L162,131l-5.51,5.52a12,12,0,0,1-17-17L145,114l-5.52-5.51a12,12,0,0,1,17-17L162,97l5.51-5.52a12,12,0,0,1,17,17L179,114Zm-68,17a12,12,0,0,1-17,0L94,131l-5.51,5.52a12,12,0,0,1-17-17L77,114l-5.52-5.51a12,12,0,0,1,17-17L94,97l5.51-5.52a12,12,0,0,1,17,17L111,114l5.52,5.51A12,12,0,0,1,116.49,136.49ZM144,180a16,16,0,1,1-16-16A16,16,0,0,1,144,180Z"/></svg></span>
                 <span class="mood-btn__label">Overwhelmed</span>
               </button>
               <button type="button" class="mood-btn" data-mood="tired" aria-pressed="false" style="--mood-color: var(--mood-tired)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-moon"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.37,139.4a12,12,0,0,0-12-3A84.07,84.07,0,0,1,119.6,31.59a12,12,0,0,0-15-15A108.86,108.86,0,0,0,49.69,55.07,108,108,0,0,0,136,228a107.09,107.09,0,0,0,64.93-21.69,108.86,108.86,0,0,0,38.44-54.94A12,12,0,0,0,236.37,139.4Zm-49.88,47.74A84,84,0,0,1,68.86,69.51,84.93,84.93,0,0,1,92.27,48.29Q92,52.13,92,56A108.12,108.12,0,0,0,200,164q3.87,0,7.71-.27A84.79,84.79,0,0,1,186.49,187.14Z"/></svg></span>
                 <span class="mood-btn__label">Tired</span>
               </button>
               <button type="button" class="mood-btn" data-mood="hopeful" aria-pressed="false" style="--mood-color: var(--mood-hopeful)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-star"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96ZM172.53,141.7a12,12,0,0,0-3.84,11.86L181.58,208l-47.29-29.08a12,12,0,0,0-12.58,0L74.42,208l12.89-54.4a12,12,0,0,0-3.84-11.86L41.2,105.24l55.4-4.47a12,12,0,0,0,10.13-7.38L128,41.89l21.27,51.5a12,12,0,0,0,10.13,7.38l55.4,4.47Z"/></svg></span>
                 <span class="mood-btn__label">Hopeful</span>
               </button>
               <button type="button" class="mood-btn" data-mood="grateful" aria-pressed="false" style="--mood-color: var(--mood-grateful)" tabindex="-1">
-                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-hands-praying"></i></span>
+                <span class="mood-btn__emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M238.15,177.18l-35.53-35.53L166.45,22.3A25.75,25.75,0,0,0,128,8,25.75,25.75,0,0,0,89.55,22.3L53.38,141.65,17.85,177.18a20,20,0,0,0,0,28.28l32.69,32.69a20,20,0,0,0,28.28,0l48.29-48.28c.31-.31.6-.62.89-.94.29.32.58.63.89.94l48.29,48.28a20,20,0,0,0,28.28,0l32.69-32.69A20,20,0,0,0,238.15,177.18ZM64.68,218.35l-27-27,11-11,27,27ZM116,158.75a19.85,19.85,0,0,1-5.86,14.14L92.68,190.35l-27-27,6.83-6.83a11.94,11.94,0,0,0,3-5l37-122.23a1.78,1.78,0,0,1,3.48.52Zm47.5,31.78-17.64-17.64A19.85,19.85,0,0,1,140,158.75v-129a1.78,1.78,0,0,1,3.48-.52l37,122.23a11.94,11.94,0,0,0,3,5l7.6,7.6Zm27.82,27.82-10.85-10.84,27.63-26.44,10.25,10.25Z"/></svg></span>
                 <span class="mood-btn__label">Grateful</span>
               </button>
             </div>

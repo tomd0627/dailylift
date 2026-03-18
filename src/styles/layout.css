@@ -39,9 +39,6 @@ section {
 .hero-band {
   position: relative;
   background: linear-gradient(180deg, #320f42 0%, #4a1d5e 20%, #7b3f9e 50%, #e8624a 78%, #f5a96b 100%);
-  background-size: 100% 300%;
-  background-position: 0% 0%;
-  animation: hero-pan 18s ease-in-out infinite alternate;
 }
 
 .hero-band::before {
@@ -51,11 +48,6 @@ section {
   background: radial-gradient(ellipse at 50% 0%, rgba(245, 169, 107, 0.25) 0%, transparent 55%);
   pointer-events: none;
   z-index: 0;
-}
-
-@keyframes hero-pan {
-  0%   { background-position: 0% 0%; }
-  100% { background-position: 0% 60%; }
 }
 
 /* ── Site Header ─────────────────────────────────────────────── */
@@ -157,10 +149,6 @@ section {
 
 /* ── Respect reduced-motion preference ───────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .hero-band {
-    animation: none;
-    background-position: 0% 30%;
-  }
   .site-header__orb {
     animation: none;
   }

@@ -1,20 +1,8 @@
 /**
- * Mood selector — renders the mood button grid and handles selection.
+ * Mood selector — wires up the pre-rendered mood button grid and handles selection.
+ * Buttons are rendered in HTML to prevent CLS; this module adds interactivity.
  * Implements roving tabindex for keyboard navigation (arrow keys).
  */
-
-const MOODS = [
-  { key: 'angry',       icon: 'ph-smiley-angry',   label: 'Angry' },
-  { key: 'sad',         icon: 'ph-smiley-sad',      label: 'Sad' },
-  { key: 'frustrated',  icon: 'ph-smiley-meh',      label: 'Frustrated' },
-  { key: 'anxious',     icon: 'ph-smiley-nervous',  label: 'Anxious' },
-  { key: 'happy',       icon: 'ph-smiley',          label: 'Happy' },
-  { key: 'lonely',      icon: 'ph-heart-break',     label: 'Lonely' },
-  { key: 'overwhelmed', icon: 'ph-smiley-x-eyes',   label: 'Overwhelmed' },
-  { key: 'tired',       icon: 'ph-moon',            label: 'Tired' },
-  { key: 'hopeful',     icon: 'ph-star',            label: 'Hopeful' },
-  { key: 'grateful',    icon: 'ph-hands-praying',   label: 'Grateful' },
-];
 
 /** @type {((mood: string) => void) | null} */
 let onSelectCallback = null;
@@ -23,7 +11,7 @@ let onSelectCallback = null;
 let selectedMood = null;
 
 /**
- * Renders mood buttons and sets up keyboard + click interaction.
+ * Attaches click + keyboard handlers to the pre-rendered mood buttons.
  * @param {(mood: string) => void} onSelect - Called when a mood is chosen.
  */
 export function initMoodSelector(onSelect) {
@@ -32,26 +20,8 @@ export function initMoodSelector(onSelect) {
   const container = document.getElementById('mood-selector');
   if (!container) return;
 
-  container.innerHTML = '';
-
-  MOODS.forEach(({ key, icon, label }, index) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'mood-btn';
-    btn.dataset.mood = key;
-    btn.setAttribute('aria-pressed', 'false');
-    btn.style.setProperty('--mood-color', `var(--mood-${key})`);
-
-    // Roving tabindex: only first button is reachable by Tab initially
-    btn.tabIndex = index === 0 ? 0 : -1;
-
-    btn.innerHTML = `
-      <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ${icon}"></i></span>
-      <span class="mood-btn__label">${label}</span>
-    `;
-
-    btn.addEventListener('click', () => handleMoodSelect(key));
-    container.appendChild(btn);
+  getAllButtons().forEach((btn) => {
+    btn.addEventListener('click', () => handleMoodSelect(btn.dataset.mood));
   });
 
   // Arrow key navigation
@@ -81,7 +51,7 @@ function handleMoodSelect(mood) {
  */
 function handleKeydown(e) {
   const buttons = getAllButtons();
-  const currentIndex = buttons.findIndex((b) => b === document.activeElement);
+  const currentIndex = buttons.indexOf(/** @type {HTMLButtonElement} */ (document.activeElement));
   if (currentIndex === -1) return;
 
   const COLS = getColumnCount();

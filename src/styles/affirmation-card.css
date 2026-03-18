@@ -167,7 +167,7 @@
 
 .affirmation-empty-state__sub {
   font-size: var(--text-base);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 @keyframes empty-pulse {
@@ -186,6 +186,8 @@
   position: relative;
   color: transparent;
   border-radius: var(--radius-sm);
+  background: var(--color-border);
+  overflow: hidden;
 }
 
 .affirmation-card__text.is-loading::after {
@@ -195,15 +197,15 @@
   border-radius: var(--radius-sm);
   background: linear-gradient(
     90deg,
-    var(--color-border) 25%,
+    transparent 0%,
     var(--color-lavender-light) 50%,
-    var(--color-border) 75%
+    transparent 100%
   );
-  background-size: 200% 100%;
+  transform: translateX(-100%);
   animation: shimmer 1.4s ease infinite;
+  will-change: transform;
 }
 
 @keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  to { transform: translateX(200%); }
 }

@@ -10,16 +10,29 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — preconnect + non-blocking load to avoid render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600&display=swap" />
+    </noscript>
 
-    <!-- Phosphor Icons -->
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+    <!-- Phosphor Icons — non-blocking load to avoid render-blocking -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+    </noscript>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/src/styles/main.css" />
@@ -75,13 +88,54 @@
               Choose your mood and receive an affirmation written just for this moment.
             </p>
 
-            <!-- Mood grid — populated by mood-selector.js -->
+            <!-- Mood grid — pre-rendered to prevent CLS; JS adds interactivity -->
             <div
               class="mood-selector"
               role="group"
               aria-label="Mood options"
               id="mood-selector"
-            ></div>
+            >
+              <button type="button" class="mood-btn" data-mood="angry" aria-pressed="false" style="--mood-color: var(--mood-angry)" tabindex="0">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-angry"></i></span>
+                <span class="mood-btn__label">Angry</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="sad" aria-pressed="false" style="--mood-color: var(--mood-sad)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-sad"></i></span>
+                <span class="mood-btn__label">Sad</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="frustrated" aria-pressed="false" style="--mood-color: var(--mood-frustrated)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-meh"></i></span>
+                <span class="mood-btn__label">Frustrated</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="anxious" aria-pressed="false" style="--mood-color: var(--mood-anxious)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-nervous"></i></span>
+                <span class="mood-btn__label">Anxious</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="happy" aria-pressed="false" style="--mood-color: var(--mood-happy)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley"></i></span>
+                <span class="mood-btn__label">Happy</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="lonely" aria-pressed="false" style="--mood-color: var(--mood-lonely)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-heart-break"></i></span>
+                <span class="mood-btn__label">Lonely</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="overwhelmed" aria-pressed="false" style="--mood-color: var(--mood-overwhelmed)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-smiley-x-eyes"></i></span>
+                <span class="mood-btn__label">Overwhelmed</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="tired" aria-pressed="false" style="--mood-color: var(--mood-tired)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-moon"></i></span>
+                <span class="mood-btn__label">Tired</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="hopeful" aria-pressed="false" style="--mood-color: var(--mood-hopeful)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-star"></i></span>
+                <span class="mood-btn__label">Hopeful</span>
+              </button>
+              <button type="button" class="mood-btn" data-mood="grateful" aria-pressed="false" style="--mood-color: var(--mood-grateful)" tabindex="-1">
+                <span class="mood-btn__emoji" aria-hidden="true"><i class="ph-bold ph-hands-praying"></i></span>
+                <span class="mood-btn__label">Grateful</span>
+              </button>
+            </div>
           </div>
         </section>
 
